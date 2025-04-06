@@ -18,7 +18,6 @@ public class App {
 
         ProductBasket basket1 = new ProductBasket();
         ProductBasket basket2 = new ProductBasket();
-        ProductBasket basket3 = new ProductBasket();
 
 //        1. Добавление продукта в корзину.
         basket1.addProduct(banana);
@@ -38,11 +37,11 @@ public class App {
         System.out.println();
 
 //        3. Печать содержимого корзины с несколькими товарами.
-        basket1.printBasket(banana);
+        basket1.printBasket(basket1);
         System.out.println();
 
 //        4. Получение стоимости корзины с несколькими товарами.
-        basket1.allSum(banana);
+        basket1.allSum(basket1);
         System.out.println();
 
 //        5. Поиск товара, который есть в корзине.
@@ -54,20 +53,20 @@ public class App {
         System.out.println();
 
 //        7. Очистка корзины.
-        basket1.cleanBasket(banana);
+        basket1.cleanBasket(basket1);
         System.out.println();
 
 //        8. Печать содержимого пустой корзины.
-        basket1.printBasket(banana);
+        basket1.printBasket(basket1);
         System.out.println();
 
 //        9. Получение стоимости пустой корзины.
-        basket1.allSum(banana);
+        basket1.allSum(basket1);
         System.out.println();
 
 //        10. Поиск товара по имени в пустой корзине.
         basket1.searchName("Гранат");
-
+        System.out.println();
     }
 
 }

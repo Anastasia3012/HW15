@@ -19,7 +19,7 @@ public class ProductBasket {
         count++;
     }
 
-    public int allSum(Product product) {
+    public int allSum(ProductBasket product) {
         int cost = 0;
         for (int i = 0; i < products.length; i++) {
             if (products[i] != null) {
@@ -30,7 +30,7 @@ public class ProductBasket {
         return cost;
     }
 
-    public void printBasket(Product product) {
+    public void printBasket(ProductBasket product) {
         for (int i = 0; i < products.length; i++) {
             if (products[i] != null) {
                 System.out.println(products[i]);
@@ -51,7 +51,7 @@ public class ProductBasket {
         return false;
     }
 
-    public void cleanBasket(Product product) {
+    public void cleanBasket(ProductBasket product) {
         for (int i = 0; i < products.length; i++) {
             products[i] = null;
         }
