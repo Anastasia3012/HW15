@@ -1,41 +1,39 @@
 package org.skypro.skyshop.product;
 
+import org.skypro.skyshop.basket.ProductBasket;
+
 import java.util.Objects;
 
-public class Product {
+public abstract class Product {
 
     private final String name;
-    private final int sum;
 
-    public Product(String name, int sum) {
+    public Product(String name) {
         this.name = name;
-        this.sum = sum;
     }
 
     public String getName() {
         return name;
     }
 
-    public int getSum() {
-        return sum;
-    }
+    public abstract int getPrice();
 
-    @Override
-    public String toString() {
-        return "Наименование: " + name +
-                ", Стоимость: " + sum + " рублей.";
-    }
+    public abstract String toString();
 
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Product product = (Product) o;
-        return sum == product.sum && Objects.equals(name, product.name);
+        return getPrice() == product.getPrice() && Objects.equals(name, product.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, sum);
+        return Objects.hash(name, getPrice());
     }
+
+    public abstract boolean isSpecial();
+
 }
+
 
