@@ -23,7 +23,7 @@ public class ProductBasket {
         int cost = 0;
         for (int i = 0; i < products.length; i++) {
             if (products[i] != null) {
-                cost = cost + products[i].getSum();
+                cost = cost + products[i].getPrice();
             }
         }
         System.out.println(cost);
@@ -36,8 +36,15 @@ public class ProductBasket {
                 System.out.println(products[i]);
             } else System.out.println("В корзине пусто!");
         }
+        int specilCount = 0;
+        for (int i = 0; i < products.length; i++) {
+            if (products[i] != null && products[i].isSpecial()) {
+                specilCount++;
+            }
+        }
         System.out.print("Итого: ");
         allSum(product);
+        System.out.print("Количество специальных товаров: " + specilCount);
     }
 
     public boolean searchName(String name) {
@@ -57,4 +64,5 @@ public class ProductBasket {
         }
         System.out.println(Arrays.toString(products));
     }
+
 }
