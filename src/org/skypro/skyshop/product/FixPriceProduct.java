@@ -1,7 +1,5 @@
 package org.skypro.skyshop.product;
 
-import org.skypro.skyshop.basket.ProductBasket;
-
 public class FixPriceProduct extends Product {
 
     private final static int FIX_SUM = 99;
@@ -11,7 +9,7 @@ public class FixPriceProduct extends Product {
     }
 
     @Override
-    public int getPrice() {
+    public double getPrice() {
         return FIX_SUM;
     }
 

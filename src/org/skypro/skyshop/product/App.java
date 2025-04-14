@@ -15,7 +15,7 @@ public class App {
         Product pineapple = new SimpleProduct("Ананас", 619);
         Product peach = new SimpleProduct("Персик", 74);
         Product grape = new SimpleProduct("Виноград", 436);
-        Product milk = new DiscountedProduct("Молоко", 100,5);
+        Product milk = new DiscountedProduct("Молоко", 5,5);
         Product bread = new DiscountedProduct("Хлеб", 87,10);
         Product onion = new DiscountedProduct("Лук", 46,15);
         Product egg = new FixPriceProduct("Яйцо");

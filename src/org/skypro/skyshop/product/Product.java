@@ -1,7 +1,5 @@
 package org.skypro.skyshop.product;
 
-import org.skypro.skyshop.basket.ProductBasket;
-
 import java.util.Objects;
 
 public abstract class Product {
@@ -16,9 +14,11 @@ public abstract class Product {
         return name;
     }
 
-    public abstract int getPrice();
+    public abstract double getPrice();
 
-    public abstract String toString();
+    public String toString() {
+        return null;
+    }
 
     @Override
     public boolean equals(Object o) {

@@ -2,17 +2,17 @@ package org.skypro.skyshop.product;
 
 public class DiscountedProduct extends Product {
 
-    private int basePrice;
-    private final int discount;
+    private final double basePrice;
+    private final double discount;
 
-    public DiscountedProduct(String name, int basePrice, int discount) {
+    public DiscountedProduct(String name, double basePrice, double discount) {
         super(name);
         this.discount = discount;
         this.basePrice = basePrice;
     }
 
     @Override
-    public int getPrice() {
+    public double getPrice() {
         return basePrice - ((basePrice * discount) / 100);
     }
 
