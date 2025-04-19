@@ -15,27 +15,46 @@ public class App {
         Product pineapple = new SimpleProduct("Ананас", 619);
         Product peach = new SimpleProduct("Персик", 74);
         Product grape = new SimpleProduct("Виноград", 436);
-        Product milk = new DiscountedProduct("Молоко", 5,5);
-        Product bread = new DiscountedProduct("Хлеб", 87,10);
-        Product onion = new DiscountedProduct("Лук", 46,15);
+        Product milk = new DiscountedProduct("Молоко", 5, 5);
+        Product bread = new DiscountedProduct("Хлеб", 87, 10);
+        Product onion = new DiscountedProduct("Лук", 46, 15);
         Product egg = new FixPriceProduct("Яйцо");
         Product water = new FixPriceProduct("Вода");
         Product cabbage = new FixPriceProduct("Капуста");
 
+        SearchEngine searchEngine1 = new SearchEngine(5);
 
-        ProductBasket basket1 = new ProductBasket();
-        ProductBasket basket2 = new ProductBasket();
-        ProductBasket basket3 = new ProductBasket();
+        Article article1 = new Article("Тест Помада", "Как влияет цвет на ваше настроение?");
+        Article article2 = new Article("Тест Молоко", "Какую жирность выбрать для выпечки?");
+        Article article3 = new Article("Тест Лампочка", "Определяем мощность.");
 
-////        1. Добавление продукта в корзину.
+        searchEngine1.add(article1);
+        searchEngine1.add(article2);
+        searchEngine1.add(article3);
+        searchEngine1.add(pear);
+        searchEngine1.add(egg);
+
+
+        searchEngine1.search("Яйцо");
+        searchEngine1.search("Груша");
+        searchEngine1.search("Молоко");
+        searchEngine1.search("Помада");
+
+
+
+//        ProductBasket basket1 = new ProductBasket();
+//        ProductBasket basket2 = new ProductBasket();
+//        ProductBasket basket3 = new ProductBasket();
+
+//        1. Добавление продукта в корзину.
 //        basket1.addProduct(banana);
 //        basket1.addProduct(pomegranate);
 //        basket1.addProduct(pineapple);
 //        basket1.addProduct(pear);
 //        basket1.addProduct(kiwi);
 //        System.out.println();
-//
-////        2. Добавление продукта в заполненную корзину, в которой нет свободного места.
+
+//        2. Добавление продукта в заполненную корзину, в которой нет свободного места.
 //        basket2.addProduct(grape);
 //        basket2.addProduct(longan);
 //        basket2.addProduct(pear);
@@ -44,45 +63,45 @@ public class App {
 //        basket2.addProduct(peach);
 //        System.out.println();
 //
-////        3. Печать содержимого корзины с несколькими товарами.
+//        3. Печать содержимого корзины с несколькими товарами.
 //        basket1.printBasket(basket1);
 //        System.out.println();
-//
-////        4. Получение стоимости корзины с несколькими товарами.
+
+//        4. Получение стоимости корзины с несколькими товарами.
 //        basket1.allSum(basket1);
 //        System.out.println();
 //
-////        5. Поиск товара, который есть в корзине.
+//        5. Поиск товара, который есть в корзине.
 //        basket1.searchName("Груша");
 //        System.out.println();
 //
-////        6. Поиск товара, которого нет в корзине.
+//        6. Поиск товара, которого нет в корзине.
 //        basket2.searchName("Ананас");
 //        System.out.println();
 //
-////        7. Очистка корзины.
+//        7. Очистка корзины.
 //        basket1.cleanBasket(basket1);
 //        System.out.println();
 //
-////        8. Печать содержимого пустой корзины.
+//        8. Печать содержимого пустой корзины.
 //        basket1.printBasket(basket1);
 //        System.out.println();
 //
-////        9. Получение стоимости пустой корзины.
+//        9. Получение стоимости пустой корзины.
 //        basket1.allSum(basket1);
 //        System.out.println();
 //
-////        10. Поиск товара по имени в пустой корзине.
+//        10. Поиск товара по имени в пустой корзине.
 //        basket1.searchName("Гранат");
 //        System.out.println();
 
-        basket3.addProduct(milk);
-        basket3.addProduct(kiwi);
-        basket3.addProduct(cabbage);
-        basket3.addProduct(water);
-        basket3.addProduct(banana);
+//        basket3.addProduct(milk);
+//        basket3.addProduct(kiwi);
+//        basket3.addProduct(cabbage);
+//        basket3.addProduct(water);
+//        basket3.addProduct(banana);
 
-        basket3.printBasket(basket3);
+//        basket3.printBasket(basket3);
 
 
     }

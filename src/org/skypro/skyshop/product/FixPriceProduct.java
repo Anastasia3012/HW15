@@ -1,6 +1,6 @@
 package org.skypro.skyshop.product;
 
-public class FixPriceProduct extends Product {
+public class FixPriceProduct extends Product{
 
     private final static int FIX_SUM = 99;
 
