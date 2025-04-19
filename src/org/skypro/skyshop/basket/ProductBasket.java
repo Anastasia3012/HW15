@@ -7,7 +7,6 @@ import java.util.Arrays;
 public class ProductBasket {
 
     private final Product[] products = new Product[5];
-
     private int count = 0;
 
     public void addProduct(Product product) {
