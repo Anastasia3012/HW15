@@ -34,4 +34,37 @@ public class SearchEngine {
         return arr;
     }
 
+    public Searchable[] searchElement(String term1) throws BestResultNotFound {
+        Searchable[] bestResult = null;
+
+        int found = 0;
+        int score;
+        for (Searchable item : searchables) {
+            String str = item.searchTerm().toLowerCase();
+            String subStr = term1.toLowerCase();
+            score = resultMax(str, subStr);
+            if (score > found) {
+                found = score;
+                bestResult = searchables;
+            } else {
+                if (bestResult == null) {
+                    throw new BestResultNotFound("Нет данных");
+                }
+            }
+        }
+        return bestResult;
+    }
+
+    private int resultMax(String str, String subStr) {
+        int score = 0;
+        int index = 0;
+        int indexSubStr = str.indexOf(subStr, index);
+        while (indexSubStr != -1) {
+            score++;
+            index = indexSubStr + subStr.length();
+            indexSubStr = str.indexOf(subStr, index);
+        }
+        return score;
+    }
+
 }

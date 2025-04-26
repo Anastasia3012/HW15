@@ -4,9 +4,13 @@ import java.util.Objects;
 
 public abstract class Product implements Searchable {
 
-    private final String name;
+
+    private String name;
 
     public Product(String name) {
+        if (name == null || name.isBlank()) {
+            throw new IllegalArgumentException("Имя некорректно");
+        }
         this.name = name;
     }
 
