@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class SearchEngine {
 
-    private Searchable[] searchables;
+    private final Searchable[] searchables;
     private int count = 0;
 
     public SearchEngine(int size) {
@@ -34,25 +34,25 @@ public class SearchEngine {
         return arr;
     }
 
-    public Searchable[] searchElement(String term1) throws BestResultNotFound {
+    public Searchable[] searchElement(String term) throws BestResultNotFoundExtends {
         Searchable[] bestResult = null;
 
         int found = 0;
         int score;
         for (Searchable item : searchables) {
             String str = item.searchTerm().toLowerCase();
-            String subStr = term1.toLowerCase();
+            String subStr = term.toLowerCase();
             score = resultMax(str, subStr);
             if (score > found) {
                 found = score;
                 bestResult = searchables;
-            } else {
-                if (bestResult == null) {
-                    throw new BestResultNotFound("Нет данных");
-                }
             }
         }
-        return bestResult;
+        if (bestResult == null) {
+            throw new BestResultNotFoundExtends("Нет данных");
+        }
+        return searchables;
+
     }
 
     private int resultMax(String str, String subStr) {

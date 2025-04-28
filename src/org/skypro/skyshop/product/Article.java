@@ -5,10 +5,7 @@ public class Article implements Searchable {
     private final String nameArticle;
     private final String textArticle;
 
-    public Article(String nameArticle, String textArticle) throws BestResultNotFound {
-//        if (textArticle == null || textArticle.isBlank()) {
-//            throw new BestResultNotFound("Нет данных");
-//        }
+    public Article(String nameArticle, String textArticle) throws BestResultNotFoundExtends {
         this.nameArticle = nameArticle;
         this.textArticle = textArticle;
     }

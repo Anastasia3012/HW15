@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 public class App {
 
-    public static void main(String[] args) throws BestResultNotFound {
+    public static void main(String[] args) throws BestResultNotFoundExtends {
 
         Product banana = new SimpleProduct("Банан", 67);
         Product apple = new SimpleProduct("Яблоко", 55);
@@ -62,12 +62,6 @@ public class App {
         System.out.println();
 
         searchEngine1.searchElement(Arrays.toString(searchEngine1.search("жир")));
-
-        searchEngine1.search("Помада");
-
-
-
-
 
     }
 
