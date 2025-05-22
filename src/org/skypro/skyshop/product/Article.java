@@ -5,7 +5,7 @@ public class Article implements Searchable {
     private final String nameArticle;
     private final String textArticle;
 
-    public Article(String nameArticle, String textArticle) throws BestResultNotFoundExtends {
+    public Article(String nameArticle, String textArticle) throws BestResultNotFoundException {
         this.nameArticle = nameArticle;
         this.textArticle = textArticle;
     }

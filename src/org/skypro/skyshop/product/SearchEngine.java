@@ -34,8 +34,8 @@ public class SearchEngine {
         return arr;
     }
 
-    public Searchable[] searchElement(String term) throws BestResultNotFoundExtends {
-        Searchable[] bestResult = null;
+    public Searchable[] searchElement(String term) throws BestResultNotFoundException {
+        Searchable bestResult = null;
 
         int found = 0;
         int score;
@@ -45,11 +45,11 @@ public class SearchEngine {
             score = resultMax(str, subStr);
             if (score > found) {
                 found = score;
-                bestResult = searchables;
+                bestResult = item;
             }
         }
         if (bestResult == null) {
-            throw new BestResultNotFoundExtends("Нет данных");
+            throw new BestResultNotFoundException("Нет данных");
         }
         return searchables;
 

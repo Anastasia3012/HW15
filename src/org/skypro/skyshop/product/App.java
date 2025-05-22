@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 public class App {
 
-    public static void main(String[] args) throws BestResultNotFoundExtends {
+    public static void main(String[] args) throws BestResultNotFoundException {
 
         Product banana = new SimpleProduct("Банан", 67);
         Product apple = new SimpleProduct("Яблоко", 55);
