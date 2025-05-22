@@ -2,9 +2,11 @@ package org.skypro.skyshop.product;
 
 import org.skypro.skyshop.basket.ProductBasket;
 
+import java.util.Arrays;
+
 public class App {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws BestResultNotFoundException {
 
         Product banana = new SimpleProduct("Банан", 67);
         Product apple = new SimpleProduct("Яблоко", 55);
@@ -21,12 +23,17 @@ public class App {
         Product egg = new FixPriceProduct("Яйцо");
         Product water = new FixPriceProduct("Вода");
         Product cabbage = new FixPriceProduct("Капуста");
-
-        SearchEngine searchEngine1 = new SearchEngine(5);
-
         Article article1 = new Article("Тест Помада", "Как влияет цвет на ваше настроение?");
         Article article2 = new Article("Тест Молоко", "Какую жирность выбрать для выпечки?");
         Article article3 = new Article("Тест Лампочка", "Определяем мощность.");
+        Article article4 = new Article("Покупаем Соль", "");
+
+        SearchEngine searchEngine1 = new SearchEngine(5);
+        ProductBasket productBasket1 = new ProductBasket();
+
+        productBasket1.addProduct(banana);
+        productBasket1.addProduct(onion);
+        productBasket1.addProduct(cabbage);
 
         searchEngine1.add(article1);
         searchEngine1.add(article2);
@@ -34,18 +41,27 @@ public class App {
         searchEngine1.add(pear);
         searchEngine1.add(egg);
 
+        try {
+            Product check1 = new SimpleProduct("", 11);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            System.out.println("Проверка завершена!");
+        }
 
-        searchEngine1.search("Яйцо");
-        searchEngine1.search("Груша");
-        searchEngine1.search("Молоко");
-        searchEngine1.search("Помада");
-        searchEngine1.search("Лампочка");
+        System.out.println();
 
+        try {
+            Product tomato = new DiscountedProduct("Помидор", 0, 25);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            System.out.println("Проверка завершена!");
+        }
 
+        System.out.println();
 
-
-
-
+        searchEngine1.searchElement(Arrays.toString(searchEngine1.search("жир")));
 
     }
 
