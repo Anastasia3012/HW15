@@ -1,40 +1,34 @@
 package org.skypro.skyshop.product;
 
 import java.util.Arrays;
+import java.util.LinkedList;
 
 public class SearchEngine {
 
-    private final Searchable[] searchables;
+    LinkedList<Searchable> searchables;
     private int count = 0;
 
     public SearchEngine(int size) {
-        searchables = new Searchable[size];
+        searchables = new LinkedList<>();
     }
 
     public void add(Searchable item) {
-        if (count < searchables.length) {
-            searchables[count++] = item;
-        }
+        searchables.add(item);
+        count++;
     }
 
-    public Searchable[] search(String term) {
-        Searchable[] arr = new Searchable[5];
-        int resultCount = 0;
-
+    public LinkedList<Searchable> search(String term) {
+        LinkedList<Searchable> result = new LinkedList<>();
         for (Searchable item : searchables) {
             if (item != null && item.searchTerm().contains(term)) {
-                if (resultCount < 5) {
-                    arr[resultCount++] = item;
-                } else {
-                    break;
-                }
-                System.out.println(Arrays.toString(arr));
+                result.add(item);
             }
         }
-        return arr;
+        System.out.println(result);
+        return result;
     }
 
-    public Searchable[] searchElement(String term) throws BestResultNotFoundException {
+    public Searchable searchElement(String term) throws BestResultNotFoundException {
         Searchable bestResult = null;
 
         int found = 0;
@@ -45,14 +39,14 @@ public class SearchEngine {
             score = resultMax(str, subStr);
             if (score > found) {
                 found = score;
+
                 bestResult = item;
             }
         }
-        if (bestResult == null) {
+        if (term == null) {
             throw new BestResultNotFoundException("Нет данных");
         }
-        return searchables;
-
+        return bestResult;
     }
 
     private int resultMax(String str, String subStr) {
