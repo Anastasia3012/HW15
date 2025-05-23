@@ -45,6 +45,8 @@ public class App {
         searchEngine1.add(article3);
         searchEngine1.add(pear);
         searchEngine1.add(egg);
+        searchEngine1.add(egg);
+
 
         productBasket1.deleteProduct("Банан");
 
@@ -75,7 +77,7 @@ public class App {
 
         System.out.println();
 
-        searchEngine1.searchElement(Arrays.toString(searchEngine1.search("Яйцо")));
+        searchEngine1.searchElement((searchEngine1.search("Яйцо").toString()));
 
 
     }
