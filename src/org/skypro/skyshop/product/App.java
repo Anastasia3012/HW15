@@ -32,14 +32,28 @@ public class App {
         ProductBasket productBasket1 = new ProductBasket();
 
         productBasket1.addProduct(banana);
+        productBasket1.addProduct(banana);
+        productBasket1.addProduct(banana);
         productBasket1.addProduct(onion);
         productBasket1.addProduct(cabbage);
+
+        productBasket1.printBasket(productBasket1);
+        System.out.println();
 
         searchEngine1.add(article1);
         searchEngine1.add(article2);
         searchEngine1.add(article3);
         searchEngine1.add(pear);
         searchEngine1.add(egg);
+
+        productBasket1.deleteProduct("Банан");
+
+        productBasket1.printBasket(productBasket1);
+
+//        productBasket1.cleanBasket(productBasket1);
+        productBasket1.deleteProduct("Сыр");
+        System.out.println();
+        productBasket1.printBasket(productBasket1);
 
         try {
             Product check1 = new SimpleProduct("", 11);
@@ -61,7 +75,8 @@ public class App {
 
         System.out.println();
 
-        searchEngine1.searchElement(Arrays.toString(searchEngine1.search("жир")));
+        searchEngine1.searchElement(Arrays.toString(searchEngine1.search("Яйцо")));
+
 
     }
 

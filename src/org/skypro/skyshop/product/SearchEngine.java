@@ -1,14 +1,18 @@
 package org.skypro.skyshop.product;
 
 import java.util.Arrays;
+import java.util.LinkedList;
 
 public class SearchEngine {
 
     private final Searchable[] searchables;
+    //    LinkedList<Searchable> searchables;
     private int count = 0;
 
     public SearchEngine(int size) {
+//        searchables = new LinkedList<>();
         searchables = new Searchable[size];
+
     }
 
     public void add(Searchable item) {
@@ -34,7 +38,7 @@ public class SearchEngine {
         return arr;
     }
 
-    public Searchable[] searchElement(String term) throws BestResultNotFoundException {
+    public Searchable searchElement(String term) throws BestResultNotFoundException {
         Searchable bestResult = null;
 
         int found = 0;
@@ -51,8 +55,7 @@ public class SearchEngine {
         if (bestResult == null) {
             throw new BestResultNotFoundException("Нет данных");
         }
-        return searchables;
-
+        return bestResult;
     }
 
     private int resultMax(String str, String subStr) {
