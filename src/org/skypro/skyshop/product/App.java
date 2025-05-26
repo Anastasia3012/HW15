@@ -52,10 +52,14 @@ public class App {
 
         productBasket1.printBasket(productBasket1);
 
-//        productBasket1.cleanBasket(productBasket1);
+
         productBasket1.deleteProduct("Сыр");
         System.out.println();
         productBasket1.printBasket(productBasket1);
+        System.out.println();
+        productBasket1.cleanBasket(productBasket1);
+        productBasket1.printBasket(productBasket1);
+        System.out.println();
 
         try {
             Product check1 = new SimpleProduct("", 11);
@@ -77,7 +81,7 @@ public class App {
 
         System.out.println();
 
-        searchEngine1.searchElement((searchEngine1.search("Яйцо").toString()));
+        searchEngine1.searchElement((searchEngine1.search("Яй").toString()));
 
 
     }
