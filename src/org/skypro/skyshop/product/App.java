@@ -3,6 +3,7 @@ package org.skypro.skyshop.product;
 import org.skypro.skyshop.basket.ProductBasket;
 
 import java.util.Arrays;
+import java.util.Set;
 
 public class App {
 
@@ -45,11 +46,10 @@ public class App {
         searchEngine1.add(article3);
         searchEngine1.add(pear);
         searchEngine1.add(egg);
-        searchEngine1.add(egg);
+
 
 
         productBasket1.deleteProduct("Банан");
-
         productBasket1.printBasket(productBasket1);
 
 
@@ -78,11 +78,17 @@ public class App {
         } finally {
             System.out.println("Проверка завершена!");
         }
-
         System.out.println();
 
-        searchEngine1.searchElement((searchEngine1.search("Яй").toString()));
+//        searchEngine1.searchElement(searchEngine1.search("яй").toString());
+//        System.out.println();
 
+        SearchEngine engine = new SearchEngine(3);
+        engine.add(banana);
+        engine.add(pear);
+        engine.add(longan);
+
+        engine.searchElement(engine.search("а").toString());
 
     }
 

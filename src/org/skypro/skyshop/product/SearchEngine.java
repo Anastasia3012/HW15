@@ -4,21 +4,27 @@ import java.util.*;
 
 public class SearchEngine {
 
-    private List<Searchable> searchables;
+    private Set<Searchable> searchables;
 
     public SearchEngine(int size) {
-        searchables = new LinkedList<>();
+        searchables = new HashSet<>();
     }
 
     public void add(Searchable item) {
         searchables.add(item);
     }
 
-    public TreeMap<String, List<Searchable>> search(String term) {
-            TreeMap<String, List<Searchable>> result = new TreeMap<>();
+    public Set<Searchable> search(String term) {
+        Set<Searchable> result = new TreeSet<>((s1, s2) -> {
+            int lengthCompare = Integer.compare(s2.searchTerm().length(), s1.searchTerm().length());
+            if (lengthCompare == 0) {
+                return s1.searchTerm().compareTo(s2.searchTerm());
+            }
+            return lengthCompare;
+        });
         for (Searchable item : searchables) {
             if (item != null && item.searchTerm() != null && item.searchTerm().contains(term)) {
-                result.put(item.searchTerm(), (List<Searchable>) item);
+                result.add(item);
             }
         }
         return result;
