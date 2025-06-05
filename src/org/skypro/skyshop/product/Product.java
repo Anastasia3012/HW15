@@ -23,12 +23,12 @@ public abstract class Product implements Searchable {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Product product = (Product) o;
-        return getPrice() == product.getPrice() && Objects.equals(name, product.name);
+        return Objects.equals(name, product.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, getPrice());
+        return Objects.hashCode(name);
     }
 
     public abstract boolean isSpecial();
