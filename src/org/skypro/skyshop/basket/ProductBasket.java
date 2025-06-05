@@ -15,38 +15,28 @@ public class ProductBasket {
     }
 
     public double allSum() {
-        double cost = 0;
-        for (List<Product> productList : products.values()) {
-            for (Product product : productList) {
-                if (product != null) {
-                    cost += product.getPrice();
-                }
-            }
-        }
-        return cost;
+        return products.values().stream()
+                .flatMap(List::stream)
+                .filter(Objects::nonNull)
+                .mapToDouble(Product::getPrice)
+                .sum();
+    }
+
+    public long getspecialCount() {
+        return products.values().stream()
+                .flatMap(List::stream)
+                .filter(Objects::nonNull)
+                .count();
     }
 
     public void printBasket(ProductBasket productBasket) {
-        if (products.isEmpty()) {
-            System.out.println("В корзине пусто!");
-        }
-        for (List<Product> productList : products.values()) {
-            for (Product product : productList) {
-                if (product != null) {
-                    System.out.println(product);
-                }
-            }
-        }
-        int specialCount = 0;
-        for (List<Product> productList : products.values()) {
-            for (Product product : productList) {
-                if (product != null && product.isSpecial()) {
-                    specialCount++;
-                }
-            }
-            System.out.println("Итого: " + allSum());
-            System.out.println("Количество специальных товаров: " + specialCount);
-        }
+        products.values().stream()
+                .flatMap(List::stream)
+                .filter(Objects::nonNull)
+                .forEach(System.out::println);
+
+        System.out.println("Итого: " + allSum());
+        System.out.println("Количество специальных товаров: " + getspecialCount());
     }
 
     public boolean searchName(String name) {
