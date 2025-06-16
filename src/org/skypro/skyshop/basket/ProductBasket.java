@@ -22,10 +22,11 @@ public class ProductBasket {
                 .sum();
     }
 
-    public long getspecialCount() {
+    public long getSpecialCount() {
         return products.values().stream()
                 .flatMap(List::stream)
                 .filter(Objects::nonNull)
+                .filter(Product::isSpecial)
                 .count();
     }
 
@@ -36,7 +37,7 @@ public class ProductBasket {
                 .forEach(System.out::println);
 
         System.out.println("Итого: " + allSum());
-        System.out.println("Количество специальных товаров: " + getspecialCount());
+        System.out.println("Количество специальных товаров: " + getSpecialCount());
     }
 
     public boolean searchName(String name) {
