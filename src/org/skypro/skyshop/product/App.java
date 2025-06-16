@@ -80,9 +80,6 @@ public class App {
         }
         System.out.println();
 
-//        searchEngine1.searchElement(searchEngine1.search("яй").toString());
-//        System.out.println();
-
         SearchEngine engine = new SearchEngine(3);
         engine.add(banana);
         engine.add(pear);
